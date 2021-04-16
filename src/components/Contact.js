@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 function Contact(props) {
     const myPropTypes = {
         name: PropTypes.string,
-        image: PropTypes.string,
+        avatar: PropTypes.string,
         online: PropTypes.bool,
       };
       PropTypes.checkPropTypes(myPropTypes, props, 'online', 'Contact');
-      PropTypes.checkPropTypes(myPropTypes, props, 'image', 'Contact');
+      PropTypes.checkPropTypes(myPropTypes, props, 'avatar', 'Contact');
       PropTypes.checkPropTypes(myPropTypes, props, 'name', 'Contact');
     return (
    <div className="Contact">
        <img className="avatar" 
-       src={props.image}
+       src={props.avatar}
        alt={props.name}
        />
        <div>
