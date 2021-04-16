@@ -1,13 +1,30 @@
 import './Contact.css';
-function Contact() {
+import PropTypes from 'prop-types';
+function Contact(props) {
+    const myPropTypes = {
+        name: PropTypes.string,
+        image: PropTypes.string,
+        online: PropTypes.bool,
+      };
+      PropTypes.checkPropTypes(myPropTypes, props, 'online', 'Contact');
+      PropTypes.checkPropTypes(myPropTypes, props, 'image', 'Contact');
+      PropTypes.checkPropTypes(myPropTypes, props, 'name', 'Contact');
     return (
    <div className="Contact">
-       <img className="avatar" src="https://randomuser.me/api/portraits/women/34.jpg"/>
+       <img className="avatar" 
+       src={props.image}
+       alt={props.name}
+       />
        <div>
-       <p className="name">Sara Ramos</p>
+       <p className="name">{props.name}</p>
        <div className="status">
-           <div className="status-online"></div>
-           <p className="status-text">online</p>
+           <div className={
+          props.online ? 'status-online' : 'status-offline'
+        }></div>
+           <p className="status-text">{
+          props.online ? 'Online' : 'Offline'
+        }</p>
+        
            </div>
        </div>
    </div>
